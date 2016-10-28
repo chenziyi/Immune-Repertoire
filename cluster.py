@@ -64,4 +64,5 @@ for key in cdrseq.keys():
 		    single(cdrseq, key, cluster)
 		    seqcluster.update(cluster.items())
 
-
+if __name__=='__main__':
+    main()
