@@ -13,9 +13,10 @@ for line in range(len(data)):
     j.append(line.split("\t")[2])
     f.append(line.split("\t")[3])
 
-
 ### Calculation of the frequency of each immunoglobulin gene family!
 def count_list(l):
+# Args:
+# l
 	d={}
 	for k in l:
 		if d.has_key(k):
@@ -24,12 +25,9 @@ def count_list(l):
 			d[k]=1
 	return d
 
-
 ### transform the immunoglobulin gene family into numeric data!
 def trans(family):
 #    family=[]
-#    for i in range(len(data)):
-#	family.append(data[i])
     unique=[i for i in set(family)]
     sort_name=sorted(unique,reverse=False)
     h={}
@@ -39,7 +37,7 @@ def trans(family):
 	if family[i] in h:
 		family[i]=h[family[i]]
 
-### 3D plot
+### plot
 fig=plt.figure()
 ax=fig.add_subplot(111,projection="3d")
 ax.set_xlabel('V family')
@@ -47,3 +45,5 @@ ax.set_ylabel('D family')
 ax.set_zlabel('J family')
 plt.titlt("85-426 Heavy Chain")
 plt.show()    
+
+
