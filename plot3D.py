@@ -37,7 +37,7 @@ def trans(family):
 	if family[i] in h:
 		family[i]=h[family[i]]
 
-### plot
+### 3D plot
 fig=plt.figure()
 ax=fig.add_subplot(111,projection="3d")
 ax.set_xlabel('V family')
