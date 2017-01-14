@@ -32,10 +32,11 @@ def pdist(X, metric):
 # Combine the sequence with similar V gene, J gene and length of CDR3	
 cdrseq={}
 for i in range(len(aa)):
-    if (aa[i].split("\t")[1]+aa[i].split("\t")[4]+str(len(aa[i].split("\t")[0]))) in cdrseq:
-        cdrseq[(aa[i].split("\t")[1]+aa[i].split("\t")[4]+str(len(aa[i].split("\t")[0])))].append(aa[i])
+    key_name=aa[i].split("\t")[1]+aa[i].split("\t")[4]+str(len(aa[i].split("\t")[0]))
+    if (key_name) in cdrseq:
+        cdrseq[key_name].append(aa[i])
     else:
-	cdrseq[(aa[i].split("\t")[1]+aa[i].split("\t")[4]+str(len(aa[i].split("\t")[0])))]=[aa[i]]
+	cdrseq[key_name]=[aa[i]]
 
 seqcluster={}
 
