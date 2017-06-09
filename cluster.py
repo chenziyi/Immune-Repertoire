@@ -5,6 +5,7 @@ import matplotlib.pylab as plt
 import operator
 from itertools import imap
 import numpy as np
+import sys
 
 ##########################################################################
 # Calculate the hamming distance between CDR3 pairs
@@ -50,9 +51,13 @@ def single(sequence, key, cluster):
 	
 #___________________________________________________________________________
 # Combine the sequence with similar V gene, J gene and length of CDR3	
+with open (sys.argv[1], "r") as f:
+    aa=f.readlines()
+
 cdrseq={}
 for i in range(len(aa)):
-    key_name=aa[i].split("\t")[1]+aa[i].split("\t")[4]+str(len(aa[i].split("\t")[0]))
+    temp=aa[i].split("\t")
+    key_name=temp[1]+temp[4]+str(len(temp[0]))
     if (key_name) in cdrseq:
         cdrseq[key_name].append(aa[i])
     else:
