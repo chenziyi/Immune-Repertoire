@@ -6,6 +6,7 @@ import operator
 from itertools import imap
 import numpy as np
 
+##########################################################################
 # Calculate the hamming distance between CDR3 pairs
 def dist(str1, str2):
 # Arguments:
@@ -15,6 +16,7 @@ def dist(str1, str2):
     hamming = sum(imap(ne, str1, str2))
     return hamming
 
+##########################################################################
 # Construct the distance matric	
 def pdist(X, metric):
 # Arguments:
@@ -29,18 +31,7 @@ def pdist(X, metric):
             k += 1
     return dm
 
-# Combine the sequence with similar V gene, J gene and length of CDR3	
-cdrseq={}
-for i in range(len(aa)):
-    key_name=aa[i].split("\t")[1]+aa[i].split("\t")[4]+str(len(aa[i].split("\t")[0]))
-    if (key_name) in cdrseq:
-        cdrseq[key_name].append(aa[i])
-    else:
-	cdrseq[key_name]=[aa[i]]
-
-seqcluster={}
-
-
+##########################################################################
 # Hierarchical clustering
 def single(sequence, key, cluster):
 # Arguments:
@@ -55,6 +46,19 @@ def single(sequence, key, cluster):
         cluster[key+"-"+str(T[i])].append(sequence[key][i])
     else:
         cluster[key+"-"+str(T[i])]=[sequence[key][i]]
+
+	
+#___________________________________________________________________________
+# Combine the sequence with similar V gene, J gene and length of CDR3	
+cdrseq={}
+for i in range(len(aa)):
+    key_name=aa[i].split("\t")[1]+aa[i].split("\t")[4]+str(len(aa[i].split("\t")[0]))
+    if (key_name) in cdrseq:
+        cdrseq[key_name].append(aa[i])
+    else:
+	cdrseq[key_name]=[aa[i]]
+
+seqcluster={}
 
 # Cluster analysis			
 for key in cdrseq.keys():
