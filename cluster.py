@@ -58,9 +58,8 @@ for i in range(len(aa)):
     else:
 	cdrseq[key_name]=[aa[i]]
 
+# Cluster analysis
 seqcluster={}
-
-# Cluster analysis			
 for key in cdrseq.keys():
     if len(cdrseq[key])==1:
 	seqcluster[key]=[cdrseq[key]]
