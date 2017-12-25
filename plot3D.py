@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 v=[];d=[];j=[];p=[]
 
-total_data<-open("out.vdj.table.patient.fasta.txt","rb")
+total_data=""
 with open(total_data) as f:
     data=f.readlines()
 
@@ -16,7 +16,7 @@ for line in range(len(data)):
 ### Calculation of the frequency of each immunoglobulin gene family!
 def count_list(l):
 # Args:
-# l
+
 	d={}
 	for k in l:
 		if d.has_key(k):
@@ -27,6 +27,8 @@ def count_list(l):
 
 ### transform the immunoglobulin gene family into numeric data!
 def trans(family):
+# Args:
+
 #    family=[]
     unique=[i for i in set(family)]
     sort_name=sorted(unique,reverse=False)
