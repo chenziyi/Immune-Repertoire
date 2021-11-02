@@ -1,18 +1,6 @@
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 
-v=[];d=[];j=[];p=[]
-
-total_data=""
-with open(total_data) as f:
-    data=f.readlines()
-
-for line in range(len(data)):
-    v.append(line.split("\t")[0])
-    d.append(line.split("\t")[1])
-    j.append(line.split("\t")[2])
-    f.append(line.split("\t")[3])
-
 ### Calculation of the frequency of each immunoglobulin gene family!
 def count_list(l):
 # Args:
@@ -38,6 +26,19 @@ def trans(family):
     for i in range(0,len(family)):
 	if family[i] in h:
 		family[i]=h[family[i]]
+		
+v=[];d=[];j=[];p=[]
+
+total_data=""
+with open(total_data) as f:
+    data=f.readlines()
+
+for line in range(len(data)):
+    v.append(line.split("\t")[0])
+    d.append(line.split("\t")[1])
+    j.append(line.split("\t")[2])
+    f.append(line.split("\t")[3])
+
 
 ### 3D plot
 fig=plt.figure()
