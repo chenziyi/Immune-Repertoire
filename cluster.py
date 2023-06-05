@@ -49,29 +49,29 @@ def single(sequence, key, cluster):
         cluster[key+"-"+str(T[i])]=[sequence[key][i]]
 
 	
-#___________________________________________________________________________
-# Combine the sequence with similar V gene, J gene and length of CDR3	
-with open (sys.argv[1], "r") as f:
-    aa=f.readlines()
-
-cdrseq={}
-for i in range(len(aa)):
-    temp=aa[i].split("\t")
-    key_name=temp[1]+temp[4]+str(len(temp[0]))
-    if (key_name) in cdrseq:
-        cdrseq[key_name].append(aa[i])
-    else:
-	cdrseq[key_name]=[aa[i]]
-
-# Cluster analysis
-seqcluster={}
-for key in cdrseq.keys():
-    if len(cdrseq[key])==1:
-	seqcluster[key]=[cdrseq[key]]
-    else:
-        cluster={}
-	single(cdrseq, key, cluster)
-	seqcluster.update(cluster.items())
 
 if __name__=='__main__':
-    main()
+    #___________________________________________________________________________
+    # Combine the sequence with similar V gene, J gene and length of CDR3	
+    with open (sys.argv[1], "r") as f:
+        aa=f.readlines()
+    
+    cdrseq={}
+    for i in range(len(aa)):
+        temp=aa[i].split("\t")
+        key_name=temp[1]+temp[4]+str(len(temp[0]))
+        if (key_name) in cdrseq:
+            cdrseq[key_name].append(aa[i])
+        else:
+	    cdrseq[key_name]=[aa[i]]
+    
+    # Cluster analysis
+    seqcluster={}
+    for key in cdrseq.keys():
+        if len(cdrseq[key])==1:
+	    seqcluster[key]=[cdrseq[key]]
+        else:
+            cluster={}
+	    single(cdrseq, key, cluster)
+	    seqcluster.update(cluster.items())
+    
