@@ -3,11 +3,11 @@ library(magrittr)
 
 bcr.dir <- "/data/zychen/scRNASeq/Cellranger/BCR"
 tcr.dir <- "/data/zychen/scRNASeq/Cellranger/TCR"
-expres.dir <- "/data/zychen/scRNASeq/Cellranger/5mRNA/华大结果"
+expres.dir <- "/data/zychen/scRNASeq/Cellranger/5mRNA/华大"
 
 #bcr.dir <- "/home/chenziyi/remote1/zychen/scRNASeq/Cellranger/BCR"
 #tcr.dir <- "/home/chenziyi/remote1/zychen/scRNASeq/Cellranger/TCR"
-#expres.dir <- "/home/chenziyi/remote1/zychen/scRNASeq/Cellranger/5mRNA/华大结果"
+#expres.dir <- "/home/chenziyi/remote1/zychen/scRNASeq/Cellranger/华大"
 mixcr <- "/data/zychen/software/anaconda3/bin/mixcr"
 
 bcr.out.directory.list <- list.dirs(bcr.dir, recursive =F)  ### Set directory to the outs folder of cellranger vdj
@@ -17,7 +17,7 @@ GEX.out.directory.list <- list.dirs(expres.dir, recursive =F) ### Set directory 
 samplenames <- c("01", "02")
 
 #Running the VDJ_GEX_matrix function
-samplename = "P0301"
+samplename = "01"
 result.dir <- bcr.dir
 
 for(sample in samplenames){
