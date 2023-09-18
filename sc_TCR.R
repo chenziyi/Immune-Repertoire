@@ -58,3 +58,4 @@ for(sample in samplenames){
     vdj_igraph_14 <- VDJ_network(network_clones[1:2], per.sample=F, distance.cutoff=14, connected=F)               
     library(igraph)                             
     igraph::plot.igraph(vdj_igraph_10[[4]], vertex.label=na, vertex.size=7+(0.06 * vdj_igraph_10[[2]]$frequency), vertex.color=factor(vdj_igraph_10[[2]]$human))   
+}
